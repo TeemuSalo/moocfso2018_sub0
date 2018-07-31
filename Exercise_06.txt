@@ -1,0 +1,19 @@
+title Tehtävä 0.6
+
+note right of Client
+Käyttäjä syöttää tekstikenttään jonkun arvon ja painaa näppäintä "Talleta"
+end note
+Client-> Server: POST to /new_note_spa
+note right of Client
+Samalla kun javascript lähettää kutsun palvelimelle luoda uusi note-arvo,
+spa.js aloittaa myös lista uudelleen piirron pelkästään client puolella.
+spa.js lisää lähetetyn uuden noten array-muuttujaan "notes" ja tekee uudelleen
+piirron sen tiedon pohjalta.
+end note
+Client -> Client: Redraw list values
+Server -> Client: Return statuscode 201, post was successful
+note right of Client
+spa.js kirjoittaa consoleen palvelimen vastauksen mukana tuleet arvot: "Note created".
+Selaimen tällä hetkellä halussa oleva tiedosto data.json sisältää nyt vanhentunutta
+tietoa, joka päivittyisi seuraavan noudon yhteydessä.
+end note
