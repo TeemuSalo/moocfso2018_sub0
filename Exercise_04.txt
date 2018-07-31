@@ -1,0 +1,23 @@
+title Tehtävä 0.4
+
+note right of Client
+Käyttäjä syöttää tekstikenttään jonkun arvon ja painaa näppäintä "Talleta"
+end note
+Client-> Server: POST to /new_note
+Server -> Client: Return statuscode 302 and redirect to /notes
+note right of Client
+Selain aloittaa sivun "notes" uudelleen latauksen kuten tehtävässä 0.3,
+mutta todennäköisesti lataa muuttumattomat sivut välimuistista
+end note
+Client -> Client: Reload "notes" document
+Client -> Client: Reload main.css
+Client -> Client: Reload main.js
+note right of Client
+Tiedosto data.json on muuttunut, joten tiedot täytyy uudelleen latada palvelimelta
+end note
+Client-> Server: "main.js" initiated GET for data.json
+Server -> Client: Return file data.json
+note right of Client
+Selain piirtää nyt päivittyneen listan DOM apin kautta
+end note
+Client -> Client: Update DOM

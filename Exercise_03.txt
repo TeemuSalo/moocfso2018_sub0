@@ -1,0 +1,27 @@
+title Tehtävä 0.3
+
+note right of Client
+Yhteyden muodostus, certificaattien validointi (https) ja muu kättely
+end note
+Client-> Server: Client initiated GET /notes
+Server -> Client: Return a document "notes"
+note right of Client
+Selain aloittaa documentin suorittamisen.
+Tässä vaiheessa dokumentti ei vielä sisällä yhtään muistiinpanoa.
+end note
+Client-> Server: "notes" initiated GET for main.css
+Client-> Server: "notes" initiated GET for main.js
+note right of Client
+Asymmetriset kutsut ja asymmentriset palautukset
+end note
+Server -> Client: Return file main.css
+Server -> Client: Return file main.js
+note right of Client
+main.js sisältää heti ajettavan funktion, ajax GET kutsun.
+end note
+Client-> Server: "main.js" initiated GET for data.json
+Server -> Client: Return file data.json
+note right of Client
+ajax-kutsun callback function suorittaa listan uudelleen piirron.
+end note
+Client -> Client: Browser api update DOM

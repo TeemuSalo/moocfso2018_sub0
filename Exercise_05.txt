@@ -1,0 +1,26 @@
+title Tehtävä 0.5
+
+note right of Client
+spa sivun noudon prosessi on täsmälleen sama kuin tehtävässä 0.3
+end note
+note right of Client
+Yhteyden muodostus, certificaattien validointi (https) ja muu kättely
+end note
+Client-> Server: Client initiated GET /notes
+Server -> Client: Return a document "notes"
+Client-> Server: "notes" initiated GET for main.css
+Client-> Server: "notes" initiated GET for spa.js
+note right of Client
+Asymmetriset kutsut ja asymmentriset palautukset
+end note
+Server -> Client: Return file main.css
+Server -> Client: Return file spa.js
+note right of Client
+Selain suorittaa tiedoston spa.js ja huomaa taas yhden GET kutsun
+end note
+Client-> Server: "spa.js" initiated GET for data.json
+Server -> Client: Return file data.json
+note right of Client
+ajax-kutsun callback function suorittaa listan uudelleen piirron.
+end note
+Client -> Client: Browser api update DOM
